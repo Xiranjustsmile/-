@@ -1,0 +1,27 @@
+<view class="container">
+  <view class="back-btn" bindtap="backToPlan">返回月份</view>
+  <view class="title">{{year}}年{{month + 1}}月</view>
+  
+  <view class="calendar-container">
+    <view class="weekdays">
+      <view class="weekday">日</view>
+      <view class="weekday">一</view>
+      <view class="weekday">二</view>
+      <view class="weekday">三</view>
+      <view class="weekday">四</view>
+      <view class="weekday">五</view>
+      <view class="weekday">六</view>
+    </view>
+    
+    <view class="days">
+      <block wx:for="{{days}}" wx:key="index">
+        <view class="day {{item.empty ? 'empty' : ''}} {{item.isToday ? 'today' : ''}} {{item.completed ? 'completed' : ''}}"
+              bindtap="{{!item.empty ? 'navigateToTodo' : ''}}" 
+              data-day="{{item.day}}">
+          {{item.empty ? '' : item.day}}
+          <image wx:if="{{item.completed}}" class="flower-icon" src="/images/flower.png"></image>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

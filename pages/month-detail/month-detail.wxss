@@ -1,0 +1,103 @@
+.container {
+  padding: 30rpx;
+  background-color: #f8f8f8;
+  min-height: 100vh;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40rpx;
+}
+
+.back-btn {
+  padding: 10rpx 20rpx;
+  background-color: #f0f0f0;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+  color: #666;
+}
+
+.title {
+  flex: 1;
+  text-align: center;
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+  margin-right: 80rpx;
+}
+
+.calendar {
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-bottom: 20rpx;
+}
+
+.weekday {
+  text-align: center;
+  font-size: 28rpx;
+  color: #999;
+  padding: 10rpx 0;
+}
+
+.days-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10rpx;
+}
+
+.day-cell {
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8rpx;
+  background-color: #f9f9f9;
+  padding: 10rpx;
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.day-cell.other-month {
+  opacity: 0.4;
+}
+
+.day-cell.today {
+  background-color: #e8f5e9;
+  border: 2rpx solid #4CAF50;
+}
+
+.day-number {
+  font-size: 32rpx;
+  color: #333;
+  margin-bottom: 10rpx;
+  position: relative;
+  z-index: 2; /* 确保日期数字在上层 */
+}
+
+.day-indicators {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  position: absolute; /* 改为绝对定位 */
+  bottom: 10rpx; /* 放在单元格底部 */
+  left: 0;
+  height: 40rpx;
+}
+
+.flower-image {
+  width: 48rpx; /* 调小一点 */
+  height: 48rpx; /* 调小一点 */
+  position: relative;
+  opacity: 0.9; /* 略微透明 */
+  flex-shrink: 0;
+}

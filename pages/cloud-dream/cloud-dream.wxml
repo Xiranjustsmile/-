@@ -1,0 +1,58 @@
+<view class="container">
+  <!-- 使用纯色背景替代背景图片 -->
+  <view class="bg-color"></view>
+  <view class="content">
+    <view class="header">
+      <view class="back-btn" bindtap="backToHome">返回</view>
+      <view class="title">云梦</view>
+    </view>
+    
+    <view class="sound-list">
+      <block wx:for="{{categories}}" wx:key="*this" wx:for-item="category">
+        <view class="sound-category">{{category}}</view>
+        <view class="sound-items">
+          <block wx:for="{{sounds}}" wx:key="id">
+            <view wx:if="{{item.category === category}}" class="sound-item {{currentSound === item.id ? 'active' : ''}}" bindtap="playSound" data-sound="{{item.id}}">
+              <!-- 使用文本图标替代图片 -->
+              <view class="sound-icon-text">{{item.emoji}}</view>
+              <view class="sound-name">{{item.name}}</view>
+            </view>
+          </block>
+        </view>
+      </block>
+    </view>
+    
+    <view class="controls">
+      <view class="volume-control">
+        <view class="volume-label">音量</view>
+        <slider bindchange="changeVolume" min="0" max="100" value="{{volume}}" activeColor="#4CAF50" block-size="24" block-color="#4CAF50"/>
+      </view>
+      
+      <view class="nap-control">
+        <view class="nap-btn {{isNapActive ? 'active' : ''}}" bindtap="toggleNapTimer">
+          <!-- 使用文本图标替代图片 -->
+          <view class="nap-icon-text">⏱</view>
+          <view class="nap-text">{{isNapActive ? napTimeText : '小睡片刻'}}</view>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 其余部分保持不变 -->
+    <view class="nap-modal" wx:if="{{showNapModal}}">
+      <view class="nap-modal-content">
+        <view class="nap-modal-title">设置小睡时间</view>
+        <view class="nap-time-options">
+          <view class="nap-time-option {{napTime === 10 ? 'active' : ''}}" bindtap="setNapTime" data-time="10">10分钟</view>
+          <view class="nap-time-option {{napTime === 20 ? 'active' : ''}}" bindtap="setNapTime" data-time="20">20分钟</view>
+          <view class="nap-time-option {{napTime === 30 ? 'active' : ''}}" bindtap="setNapTime" data-time="30">30分钟</view>
+          <view class="nap-time-option {{napTime === 45 ? 'active' : ''}}" bindtap="setNapTime" data-time="45">45分钟</view>
+          <view class="nap-time-option {{napTime === 60 ? 'active' : ''}}" bindtap="setNapTime" data-time="60">60分钟</view>
+        </view>
+        <view class="nap-modal-buttons">
+          <view class="nap-modal-btn cancel" bindtap="cancelNap">取消</view>
+          <view class="nap-modal-btn confirm" bindtap="confirmNap">确定</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

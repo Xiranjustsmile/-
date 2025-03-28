@@ -1,0 +1,23 @@
+<view class="container">
+  <view class="header">
+    <view class="title">音频管理</view>
+    <view class="back-btn" bindtap="backToHome">返回</view>
+  </view>
+  
+  <view class="sound-list">
+    <view class="sound-item" wx:for="{{sounds}}" wx:key="id">
+      <view class="sound-info">
+        <view class="sound-name">{{item.name}}</view>
+        <view class="sound-status">{{item.uploaded ? '已上传' : '未上传'}}</view>
+      </view>
+      <view class="sound-actions">
+        <button class="upload-btn" bindtap="chooseSound" data-id="{{item.id}}">选择音频</button>
+        <button class="upload-btn {{!item.tempFilePath ? 'disabled' : ''}}" bindtap="uploadSound" data-id="{{item.id}}">上传</button>
+      </view>
+    </view>
+  </view>
+  
+  <view class="footer">
+    <button class="primary-btn" bindtap="uploadAllSounds">批量上传</button>
+  </view>
+</view>

@@ -1,0 +1,27 @@
+<view class="container">
+  <view class="back-btn" bindtap="backToCalendar">返回日历</view>
+  <view class="title">{{year}}年{{month + 1}}月{{day}}日</view>
+  
+  <view class="todo-container">
+    <view class="todo-list">
+      <block wx:if="{{todos.length > 0}}">
+        <view class="todo-item {{item.completed ? 'completed' : ''}}" 
+              wx:for="{{todos}}" 
+              wx:key="index"
+              bindtap="toggleTodoComplete"
+              data-index="{{index}}">
+          <icon type="{{item.completed ? 'success' : 'circle'}}" size="20" color="{{item.completed ? '#4CAF50' : '#999'}}"/>
+          <text class="todo-text">{{item.text}}</text>
+        </view>
+      </block>
+      <view class="empty-tip" wx:else>
+        <text>暂无待办事项，请添加</text>
+      </view>
+    </view>
+    
+    <view class="todo-input">
+      <input type="text" placeholder="添加新的待办事项..." value="{{newTodo}}" bindinput="onTodoInput"/>
+      <button bindtap="addTodo" disabled="{{!newTodo}}">添加</button>
+    </view>
+  </view>
+</view>

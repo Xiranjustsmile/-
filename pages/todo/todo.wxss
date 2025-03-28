@@ -1,0 +1,117 @@
+.container {
+  padding: 30rpx;
+}
+
+.back-btn {
+  display: inline-block;
+  margin-bottom: 20rpx;
+  padding: 12rpx 24rpx;
+  background-color: #f5f5f5;
+  border-radius: 30rpx;
+  font-size: 28rpx;
+  color: #555;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  font-size: 40rpx;
+  font-weight: bold;
+  margin: 30rpx 0 50rpx;
+  text-align: center;
+  color: #333;
+  position: relative;
+}
+
+.title:after {
+  content: "";
+  position: absolute;
+  bottom: -15rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80rpx;
+  height: 6rpx;
+  background: linear-gradient(90deg, #4CAF50, #8BC34A);
+  border-radius: 3rpx;
+}
+
+.todo-container {
+  background-color: white;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  box-shadow: 0 8rpx 30rpx rgba(0, 0, 0, 0.08);
+}
+
+.todo-list {
+  margin-bottom: 40rpx;
+  min-height: 200rpx;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  padding: 25rpx 20rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+  transition: background-color 0.3s;
+  border-radius: 10rpx;
+}
+
+.todo-item:active {
+  background-color: #f9f9f9;
+}
+
+.todo-item:last-child {
+  border-bottom: none;
+}
+
+.todo-text {
+  margin-left: 20rpx;
+  flex-grow: 1;
+  font-size: 30rpx;
+  color: #333;
+  transition: color 0.3s, text-decoration 0.3s;
+}
+
+.todo-item.completed .todo-text {
+  text-decoration: line-through;
+  color: #aaa;
+}
+
+.empty-tip {
+  text-align: center;
+  color: #999;
+  padding: 60rpx 0;
+  font-size: 30rpx;
+}
+
+.todo-input {
+  display: flex;
+  border-top: 1rpx solid #eaeaea;
+  padding-top: 30rpx;
+  margin-top: 20rpx;
+}
+
+input {
+  flex-grow: 1;
+  border: 1rpx solid #eaeaea;
+  border-radius: 40rpx;
+  padding: 20rpx 30rpx;
+  margin-right: 20rpx;
+  background-color: #f9f9f9;
+  font-size: 28rpx;
+}
+
+button {
+  width: 160rpx;
+  font-size: 28rpx;
+  padding: 0;
+  line-height: 2.5;
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  color: white;
+  border-radius: 40rpx;
+  box-shadow: 0 4rpx 10rpx rgba(76, 175, 80, 0.2);
+}
+
+button[disabled] {
+  background: #cccccc;
+  box-shadow: none;
+}

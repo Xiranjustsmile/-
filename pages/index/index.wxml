@@ -1,0 +1,64 @@
+<view class="container">
+  <view class="header">
+    <view class="title-container">
+      <text class="title">每日计划</text>
+      <view class="edit-btn" bindtap="toggleEditMode">{{isEditMode ? '完成' : '编辑'}}</view>
+    </view>
+    <button bindtap="navigateToPlan" class="enter-btn">进入我的计划</button>
+  </view>
+  
+  <view class="excel-container">
+    <view class="excel-title">计划总览</view>
+    
+    <view class="table-header">
+      <view class="th">时间段</view>
+      <view class="th">计划内容</view>
+    </view>
+    
+    <view class="table-body">
+      <block wx:for="{{planData}}" wx:key="index">
+        <view class="table-row">
+          <view class="tr">
+            <!-- 时间段单元格 -->
+            <view class="td time-range" catch:tap="startEdit" data-row="{{index}}" data-col="0" data-type="timeRange">
+              <block wx:if="{{isEditing && editRow === index && editingTimeRange}}">
+                <input class="inline-edit" value="{{editingContent}}" bindinput="onInlineEdit" bindblur="finishEdit" focus="true" />
+              </block>
+              <block wx:else>
+                {{item.timeRange || '点击编辑'}}
+              </block>
+            </view>
+            
+            <!-- 内容单元格 -->
+            <view class="td content" catch:tap="startEdit" data-row="{{index}}" data-col="1" data-type="content">
+              <block wx:if="{{isEditing && editRow === index && !editingTimeRange}}">
+                <input class="inline-edit" value="{{editingContent}}" bindinput="onInlineEdit" bindblur="finishEdit" focus="true" />
+              </block>
+              <block wx:else>
+                {{item.content || '点击编辑'}}
+              </block>
+            </view>
+          </view>
+          
+          <!-- 删除按钮 -->
+          <view class="row-delete-btn {{isEditMode ? 'show' : ''}}" catch:tap="deleteRow" data-index="{{index}}">
+            <view class="delete-icon"></view>
+          </view>
+        </view>
+      </block>
+    </view>
+    
+    <view class="btn-group">
+      <button bindtap="addRow" class="btn">添加行</button>
+      <button bindtap="savePlan" class="btn">保存计划</button>
+    </view>
+    
+    <!-- 取消编辑按钮 -->
+    <view class="cancel-edit-btn {{isEditMode ? 'show' : ''}}" bindtap="cancelEditMode">
+      取消编辑
+    </view>
+  </view>
+</view>
+
+<view class="edit-btn" bindtap="toggleEditMode">{{isEditMode ? '完成' : '编辑'}}</view>
+<view class="cancel-edit-btn {{isEditMode ? 'show' : ''}}" bindtap="cancelEditMode">取消编辑</view>

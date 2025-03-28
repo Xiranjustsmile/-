@@ -1,0 +1,21 @@
+<view class="container">
+  <view class="header">
+    <!-- 使用文本替代图片 -->
+    <view class="logo-text">每日助手</view>
+  </view>
+  
+  <view class="menu">
+    <!-- 确保按钮正确绑定了导航函数 -->
+    <view class="menu-item" bindtap="navigateToPlan">
+      <text class="menu-icon-text">📝</text>
+      <text class="menu-text">我的计划</text>
+    </view>
+    
+    <view class="menu-item" bindtap="navigateToDream">
+      <text class="menu-icon-text">🌙</text>
+      <text class="menu-text">云梦</text>
+    </view>
+    
+    <!-- 移除音频管理入口 -->
+  </view>
+</view>

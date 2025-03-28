@@ -1,0 +1,89 @@
+.container {
+  padding: 30rpx;
+  background-color: #f8f8f8;
+  min-height: 100vh;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40rpx;
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.back-btn {
+  padding: 10rpx 20rpx;
+  background-color: #f0f0f0;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+  color: #666;
+}
+
+.sound-list {
+  margin-bottom: 40rpx;
+}
+
+.sound-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.sound-info {
+  flex: 1;
+}
+
+.sound-name {
+  font-size: 32rpx;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+
+.sound-status {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.sound-actions {
+  display: flex;
+  gap: 20rpx;
+}
+
+.upload-btn {
+  font-size: 24rpx;
+  padding: 10rpx 20rpx;
+  background-color: #4CAF50;
+  color: #fff;
+  border-radius: 8rpx;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.upload-btn.disabled {
+  background-color: #ccc;
+  color: #999;
+}
+
+.footer {
+  padding: 20rpx 0;
+}
+
+.primary-btn {
+  width: 100%;
+  background-color: #4CAF50;
+  color: #fff;
+  font-size: 32rpx;
+  padding: 20rpx 0;
+  border-radius: 10rpx;
+}

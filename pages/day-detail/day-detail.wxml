@@ -1,0 +1,42 @@
+<view class="container">
+  <view class="header">
+    <view class="back-btn" bindtap="backToMonth">返回月历</view>
+    <view class="title">{{formattedDate}}</view>
+    <view class="completion-btn {{isCompleted ? 'completed' : ''}}" bindtap="toggleCompletion">
+      {{isCompleted ? '已完成' : '标记完成'}}
+    </view>
+  </view>
+  
+  <view class="plans-container">
+    <view class="plans-header">
+      <text class="plans-title">今日计划</text>
+      <text class="plans-count">{{plans.length}}项</text>
+    </view>
+    
+    <view class="plans-list" wx:if="{{plans.length > 0}}">
+      <view class="plan-item" wx:for="{{plans}}" wx:key="id">
+        <view class="plan-checkbox {{item.completed ? 'checked' : ''}}" bindtap="togglePlanStatus" data-id="{{item.id}}">
+          <icon wx:if="{{item.completed}}" type="success" size="18" color="#4CAF50"/>
+        </view>
+        <view class="plan-content {{item.completed ? 'completed' : ''}}">{{item.content}}</view>
+        <view class="plan-delete" bindtap="deletePlan" data-id="{{item.id}}">
+          <icon type="clear" size="18" color="#999"/>
+        </view>
+      </view>
+    </view>
+    
+    <view class="empty-plans" wx:else>
+      <text>暂无计划，添加一个吧！</text>
+    </view>
+    
+    <view class="add-plan">
+      <input class="plan-input" placeholder="输入新计划..." value="{{newPlan}}" bindinput="inputPlan"/>
+      <button class="add-btn" bindtap="addPlan">添加</button>
+    </view>
+  </view>
+  
+  <view class="completion-flower" wx:if="{{isCompleted}}">
+    <image src="/assets/images/flower.png" mode="aspectFit" class="flower-image"/>
+    <text class="flower-text">今日已完成</text>
+  </view>
+</view>

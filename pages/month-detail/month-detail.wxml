@@ -1,0 +1,32 @@
+<view class="container">
+  <view class="header">
+    <view class="back-btn" bindtap="backToPlans">返回计划</view>
+    <view class="title">{{year}}年{{monthName}}</view>
+  </view>
+  
+  <view class="calendar">
+    <view class="weekdays">
+      <view class="weekday" wx:for="{{weekdays}}" wx:key="*this">{{item}}</view>
+    </view>
+    
+    <view class="days-grid">
+      <view 
+        wx:for="{{days}}" 
+        wx:key="date" 
+        class="day-cell {{item.isCurrentMonth ? '' : 'other-month'}} {{item.isToday ? 'today' : ''}}"
+        bindtap="navigateToDay" 
+        data-date="{{item.date}}"
+        data-is-current-month="{{item.isCurrentMonth}}"
+      >
+        <view class="day-number">{{item.day}}</view>
+        
+        <!-- 显示计划标记 -->
+        <view class="day-indicators" wx:if="{{item.isCurrentMonth}}">
+          <!-- 移除绿点 -->
+          <!-- <view class="plan-indicator" wx:if="{{item.hasPlans}}"></view> -->
+          <image class="flower-image" src="/images/flower.png" wx:if="{{item.isCompleted}}"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

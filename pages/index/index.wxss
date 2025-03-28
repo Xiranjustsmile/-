@@ -1,0 +1,342 @@
+.container {
+  padding: 30rpx;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 0 30rpx;
+  border-bottom: 1rpx solid #eaeaea;
+  margin-bottom: 30rpx;
+}
+
+.title {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.enter-btn {
+  font-size: 28rpx;
+  padding: 12rpx 24rpx;
+  background: #4CAF50;
+  color: white;
+  border-radius: 30rpx;
+}
+
+.excel-container {
+  background-color: white;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.08);
+}
+
+.excel-title {
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20rpx;
+  text-align: center;
+  padding-bottom: 20rpx;
+  border-bottom: 2rpx dashed #eaeaea;
+}
+
+.table-header {
+  display: flex;
+  border-bottom: 2rpx solid #eaeaea;
+  background-color: #f8f8f8;
+}
+
+.th {
+  flex: 1;
+  padding: 20rpx;
+  font-weight: bold;
+  text-align: center;
+  color: #555;
+}
+
+.table-body {
+  margin-bottom: 30rpx;
+}
+
+/* 只展示需要修改的部分 */
+/* 修改 tr 相关样式 */
+.tr {
+  display: flex;
+  border-bottom: 1rpx solid #f0f0f0;
+  position: relative;
+  transition: background-color 0.2s;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* 修改删除按钮样式 */
+.delete-btn {
+  position: absolute;
+  top: 0;
+  right: -100rpx; /* 初始位置在屏幕外 */
+  width: 100rpx;
+  height: 100%;
+  background-color: #ff4d4f;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28rpx;
+  transition: all 0.3s;
+}
+
+/* 删除之前的 .delete-btn.show 和 .tr:hover .delete-btn 样式 */
+
+/* 添加滑动容器样式 */
+/* 清理重复的样式，保留正确的滑动相关样式 */
+.row-wrapper {
+  width: 100%;
+  margin-bottom: 2rpx;
+}
+
+/* 清理重复的样式，只保留一个删除按钮样式 */
+.movable-area {
+  width: 100%;
+  height: 100rpx;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 2rpx;
+  background-color: #ff4d4f; /* 设置背景色为删除按钮的颜色 */
+}
+
+.movable-row {
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background-color: white;
+}
+
+.tr {
+  display: flex;
+  border-bottom: 1rpx solid #f0f0f0;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.delete-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100rpx;
+  height: 100%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28rpx;
+  z-index: 1;
+}
+
+/* 添加点击行时的样式 */
+.tr-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.td {
+  flex: 1;
+  padding: 20rpx;
+  word-break: break-all;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.time-range {
+  flex: 0.4;
+  color: #666;
+  font-size: 28rpx;
+  border-right: 1rpx solid #f0f0f0;
+}
+
+.content {
+  flex: 0.6;
+  color: #333;
+}
+
+.delete-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100rpx;
+  height: 100%;
+  background-color: #ff4d4f;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28rpx;
+  z-index: 1;
+}
+
+.inline-edit {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  border-bottom: 1px solid #4CAF50;
+  padding: 0;
+}
+
+.tr:hover .delete-btn {
+  transform: translateX(0);
+}
+
+.btn-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40rpx;
+}
+
+.btn {
+  width: 45%;
+  background: #4CAF50;
+  color: white;
+  border-radius: 10rpx;
+  font-size: 30rpx;
+}
+
+.edit-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  width: 80%;
+  background-color: white;
+  border-radius: 20rpx;
+  padding: 40rpx;
+}
+
+.modal-title {
+  font-size: 34rpx;
+  margin-bottom: 30rpx;
+  display: block;
+  text-align: center;
+  font-weight: bold;
+  color: #333;
+}
+
+.modal-input {
+  border: 1rpx solid #eaeaea;
+  padding: 20rpx;
+  border-radius: 10rpx;
+  margin-bottom: 30rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.modal-btns {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal-btn {
+  width: 45%;
+  border-radius: 10rpx;
+  font-size: 30rpx;
+}
+
+.cancel {
+  background-color: #f5f5f5;
+  color: #666;
+}
+
+.confirm {
+  background: #4CAF50;
+  color: white;
+}
+
+
+/* 添加标题容器样式 */
+.title-container {
+  display: flex;
+  align-items: center;
+}
+
+.edit-btn {
+  margin-left: 20rpx;
+  font-size: 28rpx;
+  color: #4CAF50;
+  padding: 6rpx 20rpx;
+  border: 1rpx solid #4CAF50;
+  border-radius: 30rpx;
+}
+
+/* 表格行样式 */
+.table-row {
+  display: flex;
+  position: relative;
+  align-items: center;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.tr {
+  display: flex;
+  width: 100%;
+  transition: width 0.3s;
+}
+
+/* 编辑模式下的行样式 */
+.isEditMode .tr {
+  width: calc(100% - 80rpx);
+}
+
+/* 删除按钮样式 */
+.row-delete-btn {
+  width: 0;
+  height: 100rpx;
+  background-color: #ff4d4f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: width 0.3s;
+}
+
+.row-delete-btn.show {
+  width: 80rpx;
+}
+
+.delete-icon {
+  width: 40rpx;
+  height: 4rpx;
+  background-color: white;
+  border-radius: 2rpx;
+}
+
+/* 取消编辑按钮 */
+.cancel-edit-btn {
+  text-align: center;
+  padding: 20rpx 0;
+  color: #666;
+  font-size: 28rpx;
+  margin-top: 30rpx;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  transition: opacity 0.3s, height 0.3s, padding 0.3s;
+}
+
+.cancel-edit-btn.show {
+  opacity: 1;
+  height: auto;
+  padding: 20rpx 0;
+}

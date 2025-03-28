@@ -1,0 +1,13 @@
+<view class="container">
+  <view class="header">
+    <view class="back-btn" bindtap="backToHome">返回主页</view>
+    <view class="title">我的计划</view>
+  </view>
+  
+  <view class="months-grid">
+    <view class="month-item" wx:for="{{months}}" wx:key="month" bindtap="navigateToMonth" data-year="{{item.year}}" data-month="{{item.month}}">
+      <view class="month-name">{{item.displayName}}</view>
+      <view class="year-label">{{item.year}}年</view>
+    </view>
+  </view>
+</view>
