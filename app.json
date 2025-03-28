@@ -1,0 +1,20 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/index/index",
+    "pages/plan/plan",
+    "pages/cloud-dream/cloud-dream",
+    "pages/sound-admin/sound-admin",
+    "pages/month-detail/month-detail",
+    "pages/day-detail/day-detail"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "每日助手",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "requiredBackgroundModes": ["audio"]
+}
